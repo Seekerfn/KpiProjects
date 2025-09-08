@@ -12,3 +12,4 @@ public class Task1 {
         System.out.println("y = " + y);
     }
 }
+//made an comment for commit
