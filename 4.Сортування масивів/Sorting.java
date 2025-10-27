@@ -1,7 +1,7 @@
 public class Sorting {
 
     // ===== Сортування вибором за зростанням =====
-    public static void selectionSort(int[] arr) {
+    public static void selectionSort(double[] arr) {
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
@@ -15,18 +15,18 @@ public class Sorting {
             }
 
             // Міняємо місцями поточний і мінімальний елементи
-            int temp = arr[minIndex];
+            double temp = arr[minIndex];
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }
     }
 
     // ===== Сортування вставкою за зростанням =====
-    public static void insertionSort(int[] arr) {
+    public static void insertionSort(double[] arr) {
         int n = arr.length;
 
         for (int i = 1; i < n; i++) {
-            int key = arr[i]; // поточний елемент
+            double key = arr[i]; // поточний елемент
             int j = i - 1;
 
             // Зсуваємо всі більші елементи вправо
@@ -40,8 +40,8 @@ public class Sorting {
     }
 
     // ===== Допоміжний метод для виведення масиву =====
-    public static void printArray(int[] arr) {
-        for (int num : arr) {
+    public static void printArray(double[] arr) {
+        for (double num : arr) {
             System.out.print(num + " ");
         }
         System.out.println();
@@ -49,8 +49,8 @@ public class Sorting {
 
     // ===== Тестування обох алгоритмів =====
     public static void main(String[] args) {
-        int[] numbers1 = {64, 25, 12, 22, 11};
-        int[] numbers2 = {29, 10, 14, 37, 13};
+        double[] numbers1 = {64.5, 25.1, 12.9, 22.4, 11.0};
+        double[] numbers2 = {29.2, 10.5, 14.8, 37.6, 13.3};
 
         System.out.println("Початковий масив (для Selection Sort):");
         printArray(numbers1);
