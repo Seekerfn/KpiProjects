@@ -1,4 +1,4 @@
-public class SortingAlgorithms {
+public class Sorting {
 
     // ===== Сортування вибором за зростанням =====
     public static void selectionSort(int[] arr) {
