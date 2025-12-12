@@ -14,4 +14,9 @@ public class Product {
     public double getRecommendedPrice() {
         return recommendedPrice;
     }
+
+    @Override
+    public String toString() {
+        return name + " (RRP: " + recommendedPrice + ")";
+    }
 }

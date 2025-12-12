@@ -1,34 +1,39 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
-        Product laptop = new Product("Laptop", 25000);
-        Product mouse = new Product("Mouse", 500);
+        Product laptop = new Product("Laptop", 20000);
+        Product phone = new Product("Phone", 12000);
 
-        OnlineStore s1 = new OnlineStore("TechShop");
-        s1.addProduct(laptop, 23000);
-        s1.addProduct(mouse, 400);
+        Shop shop1 = new Shop("Rozetka");
+        shop1.addProduct(laptop, 18500);
+        shop1.addProduct(phone, 11000);
 
-        OnlineStore s2 = new OnlineStore("MegaStore");
-        s2.addProduct(laptop, 25000);
-        s2.addProduct(mouse, 450);
+        Shop shop2 = new Shop("Comfy");
+        shop2.addProduct(laptop, 19500);
+        shop2.addProduct(phone, 13000);
 
-        OnlineStore s3 = new OnlineStore("BudgetShop");
-        s3.addProduct(laptop, 23000);
-        s3.addProduct(mouse, 300);
+        Shop shop3 = new Shop("Allo");
+        shop3.addProduct(laptop, 18500);
+        shop3.addProduct(phone, 11999);
 
-        ProductSearchService service = new ProductSearchService();
-        service.addStore(s1);
-        service.addStore(s2);
-        service.addStore(s3);
+        SearchService service = new SearchService();
+        service.addShop(shop1);
+        service.addShop(shop2);
+        service.addShop(shop3);
 
-        System.out.println("Min price for laptop: " + service.findMinPrice(laptop));
+        // 1) мінціна
+        System.out.println("Min price Laptop: " + service.findMinPrice(laptop));
 
-        System.out.println("Stores with minimal price:");
-        for (OnlineStore store : service.storesWithMinPrice(laptop)) {
-            System.out.println(" - " + store.getName());
-        }
+        // 2) магазини з мінціною
+        List<Shop> best = service.findShopsWithMinPrice(laptop);
+        System.out.println("Best shops:");
+        for (Shop s : best) System.out.println(" - " + s.getName());
 
-        System.out.println("Is there a store where all products are cheaper than recommended? " +
-                service.existsStoreAllCheaperThanRecommended());
+        // 3) магазини де ВСЕ дешевше RRP
+        List<Shop> cheap = service.shopsCheaperThanRecommended();
+        System.out.println("Shops with all prices < RRP:");
+        for (Shop s : cheap) System.out.println(" - " + s.getName());
     }
 }
