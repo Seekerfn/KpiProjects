@@ -1,13 +1,13 @@
 public class Sorting {
 
-    // ===== Сортування вибором за зростанням =====
+    // Сортування вибором за зростанням 
     public static void selectionSort(double[] arr) {
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
 
-            // Знаходимо індекс мінімального елемента
+            
             for (int j = i + 1; j < n; j++) {
                 if (arr[j] < arr[minIndex]) {
                     minIndex = j;
@@ -21,12 +21,12 @@ public class Sorting {
         }
     }
 
-    // ===== Сортування вставкою за зростанням =====
+    //  Сортування вставкою за зростанням 
     public static void insertionSort(double[] arr) {
         int n = arr.length;
 
         for (int i = 1; i < n; i++) {
-            double key = arr[i]; // поточний елемент
+            double key = arr[i]; 
             int j = i - 1;
 
             // Зсуваємо всі більші елементи вправо
@@ -52,20 +52,21 @@ public class Sorting {
         double[] numbers1 = {64.5, 25.1, 12.9, 22.4, 11.0};
         double[] numbers2 = {29.2, 10.5, 14.8, 37.6, 13.3};
 
-        System.out.println("Початковий масив (для Selection Sort):");
+        System.out.println("Original array (Selection Sort):");
         printArray(numbers1);
 
         selectionSort(numbers1);
 
-        System.out.println("Відсортований масив (Selection Sort):");
+        System.out.println("Sorted (Selection Sort):");
         printArray(numbers1);
 
-        System.out.println("\nПочатковий масив (для Insertion Sort):");
+        System.out.println("\nOriginal array (Insertion Sort):");
         printArray(numbers2);
 
         insertionSort(numbers2);
 
-        System.out.println("Відсортований масив (Insertion Sort):");
+        System.out.println("Sorted (Insertion Sort):");
         printArray(numbers2);
+        
     }
 }
